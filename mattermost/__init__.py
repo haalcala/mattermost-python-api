@@ -530,7 +530,21 @@ class MMApi:
 
 
 
-    #def create_team() #NOT_IMPLEMENTED
+    def create_team(self, name, display_name, type):
+        """
+        Create team.
+
+        Args:
+            props (dict, optional): fields for creating the user (See https://api.mattermost.com/#tag/teams/operation/CreateTeam).
+
+        Returns:
+            dict: Team.
+
+        Raises:
+            ApiException: Passed on from lower layers.
+        """
+        return self._post("/v4/teams", data={"name":name, "display_name":display_name, "type":type})
+
 
 
 
