@@ -316,6 +316,23 @@ class MMApi:
 
 
 
+    def get_user_by_email(self, email, **kwargs):
+        """
+        Get a user by email. (Ref: https://api.mattermost.com/#tag/users/operation/GetUserByEmail)
+
+        Args:
+            email (String).
+
+        Returns:
+            User
+
+        Raises:
+            ApiException: Passed on from lower layers.
+        """
+        return self._get("/v4/users/email/" + email , **kwargs)
+
+
+
     #def search_users() #NOT_IMPLEMENTED
     #def autocomplete_users() #NOT_IMPLEMENTED
     #def get_user_ids_of_known_users() #NOT_IMPLEMENTED
